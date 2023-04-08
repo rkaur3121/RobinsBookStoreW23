@@ -7,13 +7,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RobinsBooks.DataAccess.Repository;
+using RobinsBooks.DataAccess.Repository.IRepository;
 using RobinsBookStore.DataAccess.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RobinsBookStore
+namespace RobinBookStore
 {
     public class Startup
     {
@@ -30,8 +32,9 @@ namespace RobinsBookStore
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()//options => options.SignIn.RequireConfirmedAccount = true
+            services.AddDefaultIdentity<IdentityUser>()//remove(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -60,9 +63,10 @@ namespace RobinsBookStore
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapAreaControllerRoute(
+         name: "defaultArea",
+         areaName: "Customer",
+         pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

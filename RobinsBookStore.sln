@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobinsBookStore", "RobinsBookStore\RobinsBookStore.csproj", "{31ECA588-F4CC-440B-B834-FF39B9451992}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D8115641-EDD3-4CB2-A4A9-41C522A58F47}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobinsBooks.DataAccess", "RobinsBooks.DataAccess\RobinsBooks.DataAccess.csproj", "{6CEA7DC3-EB69-40FD-A135-B711054D3508}"
 EndProject
