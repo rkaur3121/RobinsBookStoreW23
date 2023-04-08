@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RobinsBookStore
+namespace RobinBookStore
 {
     public class Program
     {
